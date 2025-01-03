@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Letter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+        }
+
+        .pin-section {
+            margin: 20px 0;
+        }
+
+        .pin-input {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .pin-input input {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .letter {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff9e6;
+            border: 1px solid #e6d5a7;
+            border-radius: 5px;
+            text-align: left;
+            margin-bottom: 80px;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        .vinyl-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            display: none;
+        }
+
+        .vinyl {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at center,
+                #000000 0%,
+                #000000 47%,
+                #333333 48%,
+                #333333 49%,
+                #000000 50%);
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            animation: spin 4s linear infinite;
+            position: relative;
+        }
+
+        .vinyl::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 15px;
+            height: 15px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .audio-controls {
+            position: fixed;
+            bottom: 130px;
+            right: 20px;
+            display: none;
+        }
+
+        .audio-controls button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .audio-controls button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="pin-section">
+            <h1>Secret Letter</h1>
+            <p>Enter the 6-digit PIN to read the letter</p>
+            
+            <div class="pin-input">
+                <input type="password" maxlength="1" pattern="[0-9]">
+                <input type="password" maxlength="1" pattern="[0-9]">
+                <input type="password" maxlength="1" pattern="[0-9]">
+                <input type="password" maxlength="1" pattern="[0-9]">
+                <input type="password" maxlength="1" pattern="[0-9]">
+                <input type="password" maxlength="1" pattern="[0-9]">
+            </div>
+
+            <button class="submit-btn">Open Letter</button>
+            
+            <div class="error-message">Incorrect PIN. Please try again.</div>
+        </div>
+        
+        <div class="letter">
+            <h3>Dear Friend,</h3>
+            <p>Hai Ruhy… pertama-tama, maaf. Udah lama sejak kita ngobrol terakhir kali dan ga kontakan sama sekali denganmu. Kurasa saat kita ketemu itu aku ada bikin salah dan berujung kamu ga bales chatku, persis saat itu aku merasa ada salah ngomong atau ada perkataanku yang bikin km sakit hati. Ampe saat aku ngetik ini, 27 Desember 2024, aku masih gatau apa salahku ke kamu, 1 bulan aku dihantui pertanyaan “apa ya salahku?”. Ampe akhirnya zenal barusan, sebelum aku ngetik ini, maksa suruh aku dengerin sesuatu. Dan akhirnya mungkin aku tau kesalahanku. Ngomong-ngomong happy graduation yaa, sorry im late, aku takut mau reply storymu ga dibales haha. Harusnya aku beraniin diri buat nanya ke zenal saat dia ke wisudamu tentang ini agar aku segera dpt jawaban sih, tapi gatau aja kek aku takut apa jawabannya kenapa kamu hiraukan aku. Bahkan aku gaberani cerita ini ke zenal dan jg nutup diri dari yg lain wkwk. Niatku sendiri mau ngirim hadiahku itu sekalian surat ini, tapi bagian tersulitnya yaitu ngetik ini, gatau aja, kek aku takut mau ngetik semua ini. Biasanya aku si bodoamat orang mau blok aku atau apa aku gabakal approach dluan, tapi keknya ini beda, instingku seperti bilang “keknya yang ini harus minta maaf”. Itu aja deh, semoga kamu baca ini, dan sekali lagi, maaf ya Ruhy.</p>
+            <p>Disclaimer: Sebelum baca yang dibawah, ini bukan klarifikasi, bukan pembelaanku, bukan juga buat menyalahkanmu, tapi Cuma apa yang kurasain sejak kamu dateng ke aku.</p>
+            <p>Mulainya dari mana ya, keknya aku udah terbiasa kamu hilang-hilangan tiba2 ngeblok semua orang dll. Bolak balik tiba2 dateng lagi. tiba2 ngechat izin namaku ditaruh di kata pengantar sehabis menghilang dari sosmed. Kamu juga bilang mau ke malang kan.. aku kek “duh harus ketemu orang lagi, malu banget” makanya aku bilang ke kamu “aku canggungan orangnya”. Disitu aku masih biasa aja sih, ampe hampir tiap hari(?) kamu ngechat, meskipun chatnya emang biasa aja, tapi kalo kamu ga ngechat aku disitu udh ditahap nunggu chatmu, dan aku seneng kalau ada chat darimu. jadinya aku juga mulai ngechat kamu duluan. Mulai dari kamu cerita tentang temenmu, sidangmu, novel yang kamu baca dan apapun itu, aku seneng kalau kamu milih cerita ke aku. Inget ga yang kamu ampe tiap hari ngechat aku tengah malam? Setiap pagi aku pasti excited buka hp kek “pasti ada chat dari ruhy lagi nih wkwk”. Aku sadar keknya disitu aku dah jatuh hati padamu (sry), aku termotivasi buat sempro tahap pertama juga karenamu, biar kamu bisa dateng haha. Aku disitu udah excited buat ketemu km, yang sebelumnya males dan malu,  jadi ga sabar wkwkw. Terus mulai tanggal 4 november deh keknya, kamu udah mulai kursus, makin sibuk deh. Udah agak jarang chatan, mau dibales juga udh lumayan susah. Tapi aku gpp sih, aku tau kamu sibuk, lagian nanti juga kita bakal ketemu dan ngobrol banyak di malang. Tapi syg banget waktumu di malang Cuma sedikit. Aku juga lagi masa sidang ama revisi. Jadi waktuku Cuma sedikit, terus aku izin ke temenku libur 1 hari aja buat main samamu, meskipun besoknya sidang PKL haha. Maaf ya aku pas itu sempat merasa kesal, takut aja gajadi ketemu, udah mikirin bakal main ke sana sini, meskipun ujungnya Cuma ketemu di lobby hotel. Tapi aku pengen kamu tau kalo pas 40 menit kita ketemu itu aku merasa seneng bgt bisa ngobrol langsung samamu, asli dah pas itu kek km positive vibes bgt, aku merasa energyku full lagi gatau knp. Meskipun ya Cuma 40 menit,melebihi segalanya di bulan november itu, tahun 2024 ini. aku bersyukur deh pokoknya. Udah hampir 2025 ya btw? Happy new year! Kalau misal emang hadiah ini nyampenya di tahun baru. Nanti kalau kamu dah buka hadiahnya itu ada kertas isi panduannya udh ku ketik lengkap, siapa tau kamu gatau caranya dan gamau chat aku. Kali ini pamitku goodbye!?, I guess..</p>
+        </div>
+    </div>
+
+    <div class="vinyl-container">
+        <div class="vinyl"></div>
+    </div>
+
+    <div class="audio-controls">
+        <button onclick="toggleMusic()">Pause Music</button>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <!-- Add your music file URL here -->
+        <source src="YOUR_MUSIC_URL_HERE" type="audio/mp3">
+    </audio>
+
+    <script>
+        const correctPin = "180703"; // Change this to your desired PIN
+        const inputs = document.querySelectorAll('.pin-input input');
+        const submitBtn = document.querySelector('.submit-btn');
+        const letter = document.querySelector('.letter');
+        const errorMessage = document.querySelector('.error-message');
+        const pinSection = document.querySelector('.pin-section');
+        const vinylContainer = document.querySelector('.vinyl-container');
+        const audioControls = document.querySelector('.audio-controls');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            const button = document.querySelector('.audio-controls button');
+            if (isPlaying) {
+                bgMusic.pause();
+                button.textContent = 'Play Music';
+            } else {
+                bgMusic.play();
+                button.textContent = 'Pause Music';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Auto-focus next input
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+
+        submitBtn.addEventListener('click', () => {
+            const enteredPin = Array.from(inputs).map(input => input.value).join('');
+            
+            if (enteredPin === correctPin) {
+                pinSection.style.display = 'none';
+                letter.style.display = 'block';
+                letter.classList.add('fade-in');
+                vinylContainer.style.display = 'block';
+                audioControls.style.display = 'block';
+                errorMessage.style.display = 'none';
+                bgMusic.play();
+                isPlaying = true;
+            } else {
+                errorMessage.style.display = 'block';
+                inputs.forEach(input => {
+                    input.value = '';
+                });
+                inputs[0].focus();
+            }
+        });
+    </script>
+</body>
+</html>
